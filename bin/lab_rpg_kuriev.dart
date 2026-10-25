@@ -33,9 +33,10 @@ Character selectCharacter(String prompt) {
 void main() {
   print('⚔ RPG БИТВА ⚔');
   Character player = selectCharacter('Игрок');
+  Character enemy = selectCharacter('Противник');
   battle(player, enemy);
   stdout.write('Сыграть ещё раз? (да/нет): ');
-  String? again = stdin.readByteSync();
+  String? again = stdin.readLineSync();
   if (again?.trim().toLowerCase() == 'да') {
     main();
   } else {

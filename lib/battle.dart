@@ -6,7 +6,8 @@ void fight(Character attacker, Character defender) {
   defender.takeDamage(damage);
   print(
     ' ${attacker.name} наносит $damage урона -> ${defender.name}');
-  void battle(Character player, Character enemy) {
+}
+void battle(Character player, Character enemy) {
     print('');
     printSeparator();
     print('⚔ БИТВА НАЧИНАЕТСЯ!');
@@ -16,6 +17,10 @@ void fight(Character attacker, Character defender) {
     printSeparator();
     int round = 1;
     while (player.isAlive && enemy.isAlive) {
+      print('');
+      print('Раунд $round');
+      fight(player, enemy);
+      if (enemy.isAlive) fight(enemy, player);
       print('');
       player.describe();
       enemy.describe();
@@ -30,4 +35,3 @@ void fight(Character attacker, Character defender) {
     }
     printSeparator();
   }
-}
